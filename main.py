@@ -1,6 +1,11 @@
 from tkinter import *
 from tkinter import filedialog
 
+# Helper function to get the path from user
+def select_path():
+    # ask user to select directory path to save
+    path = filedialog.askdirectory()
+
 # Set up the GUI
 screen = Tk()
 title = screen.title(
@@ -31,7 +36,7 @@ select_btn = Button(screen, text = "Select")
 canvas.create_window(250, 170, window = link_label)
 canvas.create_window(250, 220, window = link_field)
 canvas.create_window(250, 280, window = path_label)
-canvas.create_window(250, 300, window = select_btn)
-canvas.create_window(250, 330, window = download_btn)
+canvas.create_window(250, 330, window = select_btn)
+canvas.create_window(250, 360, window = download_btn)
 
 screen.mainloop()
