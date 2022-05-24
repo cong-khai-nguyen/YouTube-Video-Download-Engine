@@ -15,8 +15,13 @@ logo = PhotoImage(file= 'youtube_logo.png')
 logo = logo.subsample(2,2)
 
 canvas.create_image(250, 80, image = logo)
-screen.mainloop()
 
 # Link field
 link_field = Entry(screen, width = 50)
 link_label = Label(screen, text = "Enter Download Link: ")
+
+# Add widgets to window
+canvas.create_window(250, 170, window = link_label)
+canvas.create_window(250, 220, window = link_field)
+
+screen.mainloop()
