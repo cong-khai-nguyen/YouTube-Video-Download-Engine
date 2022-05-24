@@ -20,12 +20,18 @@ canvas.create_image(250, 80, image = logo)
 link_field = Entry(screen, width = 50)
 link_label = Label(screen, text = "Enter Download Link:", font = ('Arial', 15))
 
+# download button
+download_btn = Button(screen, text = "Download File")
+
+# Select path to save the file to
+path_label = Label(screen, text = "Select Path For Download", font = ('Arial', 15))
+select_btn = Button(screen, text = "Select")
+
 # Add link field and label to window
 canvas.create_window(250, 170, window = link_label)
 canvas.create_window(250, 220, window = link_field)
-
-# download button
-download_btn = Button(screen, text = "Download File")
-canvas.create_window(250, 300, window = download_btn)
+canvas.create_window(250, 280, window = path_label)
+canvas.create_window(250, 300, window = select_btn)
+canvas.create_window(250, 330, window = download_btn)
 
 screen.mainloop()
