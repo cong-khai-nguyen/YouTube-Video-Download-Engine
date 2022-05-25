@@ -18,7 +18,7 @@ def download_file():
     get_link = link_field.get()
     # get selected download path
     user_path = path_label.cget("text")
-
+    screen.title('Downloading...')
     # Download Video
     mp4_video = YouTube(get_link).streams.get_highest_resolution().download()
     vid_clip = VideoFileClip(mp4_video)
@@ -26,7 +26,7 @@ def download_file():
 
     # Move file to the selected directory
     shutil.move(mp4_video, user_path)
-
+    screen.title('Donwload Complete! Download Another File...')
 
 # Set up the GUI
 screen = Tk()
