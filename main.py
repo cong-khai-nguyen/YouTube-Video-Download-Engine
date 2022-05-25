@@ -4,6 +4,7 @@ import pytube
 from moviepy import *
 from moviepy.editor import VideoFileClip
 from pytube import YouTube
+import shutil
 
 # Helper function to get the path from user
 def select_path():
@@ -22,6 +23,10 @@ def download_file():
     mp4_video = YouTube(get_link).streams.get_highest_resolution().download()
     vid_clip = VideoFileClip(mp4_video)
     vid_clip.close()
+
+    # Move file to the selected directory
+    shutil.move(mp4_video, user_path)
+
 
 # Set up the GUI
 screen = Tk()
@@ -43,7 +48,7 @@ link_field = Entry(screen, width = 50)
 link_label = Label(screen, text = "Enter Download Link:", font = ('Arial', 15))
 
 # download button
-download_btn = Button(screen, text = "Download File")
+download_btn = Button(screen, text = "Download File", command = download_file)
 
 # Select path to save the file to
 path_label = Label(screen, text = "Select Path For Download", font = ('Arial', 15))
