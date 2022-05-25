@@ -17,7 +17,11 @@ def download_file():
     get_link = link_field.get()
     # get selected download path
     user_path = path_label.cget("text")
-    pass
+
+    # Download Video
+    mp4_video = YouTube(get_link).streams.get_highest_resolution().download()
+    vid_clip = VideoFileClip(mp4_video)
+    vid_clip.close()
 
 # Set up the GUI
 screen = Tk()
