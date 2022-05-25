@@ -13,7 +13,11 @@ def select_path():
 
 # Helper function to download file
 def download_file():
-
+    # Get the YouTube link that the user input
+    get_link = link_field.get()
+    # get selected download path
+    user_path = path_label.cget("text")
+    pass
 
 # Set up the GUI
 screen = Tk()
