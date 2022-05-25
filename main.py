@@ -5,6 +5,7 @@ from tkinter import filedialog
 def select_path():
     # ask user to select directory path to save
     path = filedialog.askdirectory()
+    path_label.config(text=path)
 
 # Set up the GUI
 screen = Tk()
@@ -30,7 +31,7 @@ download_btn = Button(screen, text = "Download File")
 
 # Select path to save the file to
 path_label = Label(screen, text = "Select Path For Download", font = ('Arial', 15))
-select_btn = Button(screen, text = "Select")
+select_btn = Button(screen, text = "Select", command=select_path)
 
 # Add link field and label to window
 canvas.create_window(250, 170, window = link_label)
