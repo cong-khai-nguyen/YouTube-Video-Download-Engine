@@ -16,6 +16,9 @@ def select_path():
 def download_file():
     # Get the YouTube link that the user input
     get_link = link_field.get()
+    if get_link == "":
+        link_label.config(text = "Please Enter Download Link:")
+        return
 
     # get selected download path
     user_path = path_label.cget("text")
