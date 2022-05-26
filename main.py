@@ -16,8 +16,20 @@ def select_path():
 def download_file():
     # Get the YouTube link that the user input
     get_link = link_field.get()
+
     # get selected download path
     user_path = path_label.cget("text")
+    if user_path == "Select Path For Download" or user_path == "":
+        user_path = "Please Select Path For Download"
+        path_label.config(text=user_path)
+
+    while user_path == "Please Select Path For Download":
+        select_path()
+        user_path = path_label.cget("text")
+
+    if user_path == "":
+        path_label.config(text="Please Select Path For Download")
+        return
     screen.title('Downloading...')
     # Download Video
     mp4_video = YouTube(get_link).streams.get_highest_resolution().download()
